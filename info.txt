@@ -22,3 +22,6 @@ in `.gitignore` :
 
 `npm i nodemon`
 
+
+Start server: 
+`node index.js`

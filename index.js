@@ -21,13 +21,13 @@ const salaries_count = 15;
 for (let i = 0; i < salaries_count; i++) {
     console.log(i);
 
-    salaries.push({
+    salaries[i] = ({
         id_salarie: faker.string.alphanumeric(5),
         firstName_salarie: faker.person.firstName(),
         lastName_salarie: faker.person.lastName()
     });
     console.dir(salaries);
-}
+};
 
 
 
