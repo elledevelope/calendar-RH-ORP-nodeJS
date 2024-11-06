@@ -14,21 +14,13 @@ app.get('/', (req, res) => {
 })
 
 // ------------------ connection MySQL
-connectionDB = mysql.createConnection({
+con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: ""
+    password: "",
+    database: "calendar"
 });
 
-
-connectionDB.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    // con.query("CREATE DATABASE mydb", function (err, result) {
-    //   if (err) throw err;
-    //   console.log("Database created");
-    // });
-  });
 
 // ------------------ faker
 const salaries = [];
@@ -45,11 +37,27 @@ for (let i = 0; i < salaries_count; i++) {
 
 
 
-// ------------------ socket.io (server)
-io.on("connection", (socket) => {
-    socket.on("selectDates", (info) => {
-        // console.dir(info);
+// ------------------ connection MySQL
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+
+    // ------------------ socket.io (server)
+    io.on("connection", (socket) => {
+        socket.on("selectDates", (info) => {
+            // console.dir(info);
+
+            // ------------------ insert MySQL
+            const sql = `INSERT INTO conges (id_salarie, start, end) 
+            VALUES ('djjf4565', '${info.start}', '${info.end}')`;
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+
+        });
     });
+
 });
 
 
