@@ -21,6 +21,7 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         // console.dir('selected ' + info.startStr + ' to ' + info.endStr);
         console.dir(info);
 
+        // ------------------ socket.io (client)
         socket.emit("selectDates", info);
         dateDebut = info.startStr;
         dateFin = info.endStr;

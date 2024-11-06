@@ -13,11 +13,9 @@ app.get('/', (req, res) => {
 })
 
 
-// faker
+// ------------------ faker
 const salaries = [];
 const salaries_count = 15;
-
-
 for (let i = 0; i < salaries_count; i++) {
     // console.log(i);
 
@@ -29,18 +27,16 @@ for (let i = 0; i < salaries_count; i++) {
 };
 
 
-
-
-
-
-
+// ------------------ socket.io (server)
 io.on("connection", (socket) => {
     socket.on("selectDates", (info)=>{
         console.dir(info);
     });
-})
+});
+
+
 
 server.listen(port, ip, () => {
-    console.log("Demarer sur http://" + ip + ":" + port);
+    console.log("Démarrer sur http://" + ip + ":" + port);
 
-})
+});
