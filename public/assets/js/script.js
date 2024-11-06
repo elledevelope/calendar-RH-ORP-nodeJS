@@ -1,13 +1,14 @@
 console.log("checking connection");
 
 const calendarDiv = document.getElementById("calendar");
-const initialDate = new  Date();
+const initialDate = new Date();
 
 const calendarEl = document.getElementById('calendar');
 
 const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     initialDate: initialDate,
+    selectable: true,
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -67,6 +68,19 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         },
     ],
 
+    //selecting several dated at the same time :
+    select: function (info) {
+        console.dir('selected ' + info.startStr + ' to ' + info.endStr);
+    },
+
+    // dateClick: function (info) {
+    //     // alert('Clicked on: ' + info.dateStr);
+    //     // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+    //     // alert('Current view: ' + info.view.type);
+    //     // change the day's background color just for fun
+    //     // info.dayEl.style.backgroundColor = 'lightgrey';
+
+    // },
 
     // Handling hover events
     eventMouseEnter: function (info) {
@@ -77,6 +91,7 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         tooltip.style.backgroundColor = "grey";
         tooltip.style.color = "white";
         tooltip.style.padding = "5px";
+        tooltip.style.zIndex = "100";
 
         // Append tooltip to the body and position it near the pointer
         document.body.appendChild(tooltip);
