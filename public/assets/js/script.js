@@ -4,6 +4,7 @@ const calendarDiv = document.getElementById("calendar");
 const initialDate = new Date();
 
 const calendarEl = document.getElementById('calendar');
+const socket = io();
 
 const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -19,6 +20,8 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
     select: (info) => {
         // console.dir('selected ' + info.startStr + ' to ' + info.endStr);
         console.dir(info);
+
+        socket.emit("selectDates", info);
         dateDebut = info.startStr;
         dateFin = info.endStr;
         console.log("select");

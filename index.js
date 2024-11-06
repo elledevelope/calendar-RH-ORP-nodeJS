@@ -35,7 +35,9 @@ for (let i = 0; i < salaries_count; i++) {
 
 
 io.on("connection", (socket) => {
-
+    socket.on("selectDates", (info)=>{
+        console.dir(info);
+    });
 })
 
 server.listen(port, ip, () => {
