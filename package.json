@@ -1,0 +1,17 @@
+{
+  "name": "calendar-rh-orp-nodejs",
+  "version": "1.0.0",
+  "description": "rh orp node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "express": "^4.21.1",
+    "fullcalendar": "^6.1.15",
+    "mysql2": "^3.11.4"
+  }
+}

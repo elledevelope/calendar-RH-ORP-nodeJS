@@ -1,0 +1,19 @@
+``npm -v``
+10.9.0
+
+``node -v``
+v22.11.0
+
+`npm init`
+
+in `.gitignore` : 
+/node_modules
+.env
+
+`npm i express`
+
+`npm i mysql2`
+
+`npm i @faker-js/faker`
+
+`npm i fullcalendar`
