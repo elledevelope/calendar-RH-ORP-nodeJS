@@ -17,3 +17,8 @@ in `.gitignore` :
 `npm i @faker-js/faker`
 
 `npm i fullcalendar`
+
+`npm i socket.io`
+
+`npm i nodemon`
+
