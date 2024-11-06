@@ -64,7 +64,37 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
             start: '2024-11-15T09:30:00',
             end: '2024-10-12T10:30:00'
         },
-    ]
+    ],
+
+
+    // Handling hover events
+    eventMouseEnter: function (info) {
+        // Create a tooltip element
+        let tooltip = document.createElement('div');
+        tooltip.className = 'event-tooltip';
+        tooltip.innerHTML = info.event.title;
+        tooltip.style.backgroundColor = "grey";
+        tooltip.style.color = "white";
+        tooltip.style.padding = "5px";
+
+        // Append tooltip to the body and position it near the pointer
+        document.body.appendChild(tooltip);
+        tooltip.style.position = 'absolute';
+        tooltip.style.left = `${info.jsEvent.pageX + 10}px`;  // Position slightly to the right of the pointer
+        tooltip.style.top = `${info.jsEvent.pageY + 10}px`;   // Position slightly below the pointer
+
+        // Show the tooltip when hovering
+        tooltip.style.display = 'block';
+
+        // Remove the tooltip when mouse leaves
+        info.el.addEventListener('mouseleave', function () {
+            tooltip.remove();
+        });
+    }
+
 });
+
+
+
 
 calendar.render();
