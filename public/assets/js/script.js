@@ -1,12 +1,13 @@
 console.log("checking connection");
 
 const calendarDiv = document.getElementById("calendar");
+const initialDate = new  Date();
 
 const calendarEl = document.getElementById('calendar');
 
 const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
-    initialDate: '2024-11-01',
+    initialDate: initialDate,
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
