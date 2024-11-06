@@ -14,6 +14,27 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
+
+    //selecting several dated at the same time :
+    select: (info) => {
+        // console.dir('selected ' + info.startStr + ' to ' + info.endStr);
+        console.dir(info);
+        dateDebut = info.startStr;
+        dateFin = info.endStr;
+        console.log("select");
+    },
+
+    dateClick: function (info) {
+        dateDebut = info.startStr;
+        dateFin = info.endStr;
+        console.log("click");
+        // alert('Clicked on: ' + info.dateStr);
+        // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+        // alert('Current view: ' + info.view.type);
+        // info.dayEl.style.backgroundColor = 'lightgrey';
+
+    },
+
     events: [
         {
             title: 'All Day Event',
@@ -67,20 +88,6 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
             end: '2024-10-12T10:30:00'
         },
     ],
-
-    //selecting several dated at the same time :
-    select: function (info) {
-        console.dir('selected ' + info.startStr + ' to ' + info.endStr);
-    },
-
-    // dateClick: function (info) {
-    //     // alert('Clicked on: ' + info.dateStr);
-    //     // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-    //     // alert('Current view: ' + info.view.type);
-    //     // change the day's background color just for fun
-    //     // info.dayEl.style.backgroundColor = 'lightgrey';
-
-    // },
 
     // Handling hover events
     eventMouseEnter: function (info) {
