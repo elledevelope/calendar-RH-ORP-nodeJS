@@ -8,20 +8,25 @@ const { faker } = require('@faker-js/faker'); // faker
 const ip = "127.0.0.1";
 const port = 4000;
 app.use(express.static('public'));
-app.get('/',(req,res)=>{
-   res.sendFile('index.html',{root:__dirname}); 
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: __dirname });
 })
 
 
 // faker
 const salaries = [];
 const salaries_count = 15;
-//id_salarie : faker.string.alphanumeric(5) // '3e5V7'
-// fullName_salarie : faker.person.fullName()
-//lastName_salarie : faker.person.lastName()
 
-for (let index = 0; index < salaries_count; index++) {
-    console.log(index); 
+
+for (let i = 0; i < salaries_count; i++) {
+    console.log(i);
+
+    salaries.push({
+        id_salarie: faker.string.alphanumeric(5),
+        firstName_salarie: faker.person.firstName(),
+        lastName_salarie: faker.person.lastName()
+    });
+    console.dir(salaries);
 }
 
 
@@ -30,11 +35,11 @@ for (let index = 0; index < salaries_count; index++) {
 
 
 
-io.on("connection",(socket)=>{
+io.on("connection", (socket) => {
 
 })
 
-server.listen(port,ip,()=>{
-    console.log("Demarer sur http://"+ip+":"+port);
-    
+server.listen(port, ip, () => {
+    console.log("Demarer sur http://" + ip + ":" + port);
+
 })
