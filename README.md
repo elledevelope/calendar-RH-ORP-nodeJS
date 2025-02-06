@@ -4,6 +4,8 @@
 
 This project is a real-time calendar application built with **Node.js**, **Express**, **Socket.io**, and **MySQL**. It allows users to select dates for leave requests, which are then stored in a MySQL database. The project also utilizes **Faker.js** to generate dummy employee data for testing.
 
+![Screenshot](/public/screenshot-calender.png)
+
 ## 🛠 Tech Stack
 
 - **Backend:** Node.js, Express.js
@@ -24,8 +26,8 @@ This project is a real-time calendar application built with **Node.js**, **Expre
 1. Clone the repository:
     
     ```sh
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/elledevelope/calendar-RH-ORP-nodeJS
+    cd calendar-RH-ORP-nodeJS
     ```
     
 2. Install dependencies:
