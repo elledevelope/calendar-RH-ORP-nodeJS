@@ -4,7 +4,7 @@ const app = express();
 const server = http.Server(app);
 const io = require('socket.io')(server); //172.20.192.227
 const { faker } = require('@faker-js/faker'); // faker
-const mysql = require('mysql'); // MySQL
+const mysql = require('mysql2'); // MySQL
 
 const ip = "127.0.0.1";
 const port = 4000;
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 // ------------------ connection MySQL
-con = mysql.createConnection({
+con = mysql.createConnection({ 
     host: "localhost",
     user: "root",
     password: "",
