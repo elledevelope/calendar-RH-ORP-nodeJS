@@ -26,7 +26,7 @@ This project is a real-time calendar application built with **Node.js**, **Expre
 1. Clone the repository:
     
     ```sh
-    git clone https://github.com/elledevelope/calendar-RH-ORP-nodeJS
+    git clone https://github.com/elledevelope/calendar-RH-ORP-nodeJS.git
     cd calendar-RH-ORP-nodeJS
     ```
     
